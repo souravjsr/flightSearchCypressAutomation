@@ -111,7 +111,7 @@ describe("Basic Sanity Suite", () => {
   it("Testing price calculator non negative value should be displayed", () => {
     cy.secondPageNextMonth();
     cy.get(".index_container_3dDcv > :nth-child(2) > div").click();
-    cy.get(".index_active_12hsp > .index_info_ml0nk").click();
+    cy.get(".index_active_12hsp > .index_info_ml0nk").click({ multiple: true });
     cy.contains("Total: -").should("not.exist");
   });
 
@@ -213,7 +213,7 @@ describe("Basic Sanity Suite", () => {
         "Expected flights " + api_count + ", total displayed:" + ele_count
       );
       if (api_count != ele_count) {
-        throw "Incorrect Flight nubers displayed.";
+        throw "Incorrect number of flights displayed.";
       }
     });
   });

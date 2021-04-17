@@ -73,7 +73,7 @@ Cypress.Commands.add("secondPageNextMonth", () => {
   // Checking the search button is enabled.
   cy.get(".index_btn_3-fZ3").should("be.enabled").click();
   cy.get(".index_title_28dBN").should("not.exist");
-  cy.get(".index_cheapest_2q1Am").click();
+  cy.get(".index_cheapest_2q1Am").click({ multiple: true });
   // Checking the bar showing the value is displayed.
   cy.contains("Total: ").should("exist");
 });

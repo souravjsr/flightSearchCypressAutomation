@@ -70,7 +70,7 @@ describe("API testing Suite", () => {
             response.body["Quotes"].length +
             " flights have 00:00 time of departure. So failing the TCs."
         );
-        throw "Inorrect Flight timings.";
+        throw "Incorrect Flight timings.";
       }
     });
   });

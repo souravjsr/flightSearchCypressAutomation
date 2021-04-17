@@ -3,9 +3,10 @@
 describe("Mobile Browser Sanity Suite", () => {
   // Since the Web App should be mobile first, so running these tests are mandatory.
   beforeEach(() => {
-    cy.viewport("iphone-6");
+    cy.viewport("iphone-x");
     cy.visit("https://lucid-heisenberg-474565.netlify.app/");
   });
+
   it("Testing presence of all the required elements", () => {
     // Navigating to second page.
     cy.secondPageNextMonth();
@@ -50,6 +51,43 @@ describe("Mobile Browser Sanity Suite", () => {
       .should("contain", "Return date");
   });
 
+  it("Testing by keeping from and to as same destination", () => {
+    cy.get(":nth-child(1) > .index_container_3GUAF > .index_input_MYGAS").type(
+      "DEL"
+    );
+    cy.log("Waiting for 2 secs.");
+    cy.wait(2000);
+    cy.get(".index_active_R7nrZ").click();
+    cy.get(":nth-child(2) > .index_container_3GUAF > .index_input_MYGAS").type(
+      "DEL"
+    );
+    cy.log("Waiting for 2 secs.");
+    cy.wait(2000);
+    cy.get(".index_active_R7nrZ").click();
+    cy.get(
+      ":nth-child(3) > .index_container_1iBBj > .index_input_2swCx"
+    ).click();
+    cy.get('[aria-label="Next month"] > .v-btn__content > .v-icon').click();
+    cy.contains("30").click();
+    cy.get(".index_btn_3-fZ3").click();
+    cy.contains("Sorry, we can't find any flights").should("exist");
+  });
+
+  it("Testing selection of Lowest price", () => {
+    var a = [];
+
+    cy.secondPageNextMonth();
+    cy.get(".index_price_2ibrS")
+      .each(($ele) => {
+        // Calculating the sum from individual flight details.
+        a.push(parseInt($ele.text()));
+      })
+      .then(() => {
+        console.log(Math.min(...a));
+        cy.get(".index_cheapest_2q1Am").contains(Math.min(...a));
+      });
+  });
+
   it("Testing direct flight checkbox", () => {
     cy.secondPageNextMonth();
     cy.contains("flight with transition");
@@ -75,7 +113,7 @@ describe("Mobile Browser Sanity Suite", () => {
   it("Testing price calculator non negative value should be displayed", () => {
     cy.secondPageNextMonth();
     cy.get(".index_container_3dDcv > :nth-child(2) > div").click();
-    cy.get(".index_active_12hsp > .index_info_ml0nk").click();
+    cy.get(".index_active_12hsp > .index_info_ml0nk").click({ multiple: true });
     cy.contains("Total: -").should("not.exist");
   });
 
@@ -177,7 +215,7 @@ describe("Mobile Browser Sanity Suite", () => {
         "Expected flights " + api_count + ", total displayed:" + ele_count
       );
       if (api_count != ele_count) {
-        throw "Incorrect Flight nubers displayed.";
+        throw "Incorrect number of flights displayed.";
       }
     });
   });
