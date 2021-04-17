@@ -71,7 +71,7 @@ describe("Basic Sanity Suite", () => {
     cy.contains("Sorry, we can't find any flights").should("exist");
   });
 
-  it.only("Testing selection of Lowest price", () => {
+  it("Testing selection of Lowest price", () => {
     var a = [];
 
     cy.secondPageNextMonth();
