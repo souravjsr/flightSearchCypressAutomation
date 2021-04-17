@@ -19,17 +19,17 @@ https://docs.cypress.io/guides/getting-started/installing-cypress#System-require
   docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/api.test.js --browser firefox
   
 * Using Cypress Runner
-  cd flightSearchCypressAutomation
-  npx cypress open
-  Just double click on the spec to execute
+    * cd flightSearchCypressAutomation
+    * npx cypress open
+    * Just double click on the spec to execute
   
 * Running individual spec
-  cd flightSearchCypressAutomation
-  npx cypress run --spec cypress/integration/flightSearchTests/sanity.test.js
+    * cd flightSearchCypressAutomation
+    * npx cypress run --spec cypress/integration/flightSearchTests/sanity.test.js
   
 * Running on specific browser
-  cd flightSearchCypressAutomation
-  npx cypress run --spec cypress/integration/flightSearchTests/sanity.test.js --browser firefox
+    * cd flightSearchCypressAutomation
+    * npx cypress run --spec cypress/integration/flightSearchTests/sanity.test.js --browser firefox
   
 ## Testcases
 All testcases are located in folder: cypress/integration/flightSearchTests/ 
