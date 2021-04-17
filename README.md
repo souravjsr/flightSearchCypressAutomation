@@ -9,14 +9,14 @@ https://docs.cypress.io/guides/getting-started/installing-cypress#System-require
 
 ## Execution of Testcases
 * Using Cypress Command line:
-  cd flightSearchCypressAutomation
-  npx cypress run
+    * cd flightSearchCypressAutomation
+    * npx cypress run
   
 * Using Docker (RECOMMENDED):
-  cd flightSearchCypressAutomation
-  docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/sanity.test.js --browser firefox
-  docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/load.test.js --browser firefox
-  docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/api.test.js --browser firefox
+    * cd flightSearchCypressAutomation
+    * docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/sanity.test.js --browser firefox
+    * docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/load.test.js --browser firefox
+    * docker run -it -v $PWD:/e2e -w /e2e cypress/included:6.2.1 --spec cypress/integration/flightSearchTests/api.test.js --browser firefox
   
 * Using Cypress Runner
     * cd flightSearchCypressAutomation
